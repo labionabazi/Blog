@@ -7,7 +7,7 @@
   // Die Funktionen zur Überprüfung, ob die Login-Daten gültig sind, muss also hier oben im PHP-Teil stehen!
   // Wenn Login-Daten korrekt sind:
   // Session-Variable mit Benutzer-ID setzen und Wechsel in Memberbereich
-  // $_SESSION['uid'] = $uid;	
+  // $_SESSION['uid'] = $uid;
   // header('Location: index.php?function=entries_member');
   // Wenn Formular gesendet worden ist, die Login-Daten aber nicht korrekt sind:
   // Unten auf der Seite Anzeige der Fehlermeldung.
