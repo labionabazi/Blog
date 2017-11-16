@@ -1,0 +1,10 @@
+.btn-primary a{
+  text-decoration: none;
+  color: white;
+}
+
+.btn-primary {
+  text-decoration: none;
+  color: white;
+  margin: 3px;
+}

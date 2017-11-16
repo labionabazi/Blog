@@ -14,16 +14,20 @@
   // Prüfung, ob bereits ein Blog ausgewählt worden ist
   if (isset($_GET['bid'])) $blogId = $_GET['bid'];
   else $blogId = 0;
+
+  if (isset($_GET['eid'])) $EntryId = $_GET['eid'];
+  else $EntryId = 0;
 ?>
 <!DOCTYPE html>
 <html lang="de">
 <head>
   <meta charset="utf-8">
-<!-- 
+<!--
   Die nächsten 4 Zeilen sind Bootstrap, falls nicht gewünscht entfernen.
 -->
   <meta name="viewport" content="width=device-width, shrink-to-fit=no, initial-scale=1">
   <link href="css/bootstrap.min.css" rel="stylesheet" />
+    <link href="css/customStyle.css" rel="stylesheet" />
   <script src="js/jquery-3.1.1.min.js"></script>
   <script src="js/bootstrap.min.js"></script>
   <script src="include/functions.js"></script>
@@ -31,20 +35,20 @@
 </head>
 
 <body>
-<!-- 
+<!--
   nav, div und ul class="..." ist Bootstrap, falls nicht gewünscht entfernen oder anpassen.
   Die Einteilung der Website in verschiedene Bereiche (Menü-, Content-Bereich, usw.) kann auch selber mit div realisiert werden.
 -->
   <nav class="navbar navbar-default navbar-fixed-top">
 	<div class="container">
       <div class="navbar-header">
-		<a class="navbar-brand"><?php echo "Blog (Namen einsetzen...)"; ?></a>
+		<a class="navbar-brand"><?php echo "Blog ".getUserName($blogId); ?></a>
       </div>
       <ul class="nav navbar-nav">
-		<?php 
+		<?php
 		  echo "<li><a href='index.php?function=login&bid=$blogId'>Login</a></li>";
 		  echo "<li><a href='index.php?function=blogs&bid=$blogId'>Blog wählen</a></li>";
-		  echo "<li><a href='index.php?function=entries_login&bid=$blogId'>Beiträge anzeigen</a></li>";
+		  echo "<li><a href='index.php?function=entries_public&bid=$blogId'>Beiträge anzeigen</a></li>";
 		?>
       </ul>
 	</div>
