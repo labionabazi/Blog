@@ -1,7 +1,26 @@
 <?php
   $meldung = "";
+  if(empty($_POST['email']) & empty($_POST['passwort'])){
   $email = "";
   $passwort = "";
+}
+else {
+  $email = $_POST['email'];
+  $passwort = $_POST['passwort'];
+
+  $uid = getUserIdFromDb($email, $passwort);
+
+  if(!empty($uid)){
+
+  $_SESSION['uid'] = $uid;
+  header('location: index.php?function=entries_member&bid='.$uid);
+
+}else {
+  $meldung = "Login innkorrekt bitte geben sie ein gültiges Login ein!!!";
+}
+
+
+}
   // $_SERVER['PHP_SELF'] = login.php in diesem Fall (also die PHP-Datei, die gerade ausgeführt wird).
   // Mit andern Worten: Nach Senden des Formulars wird wieder login.php aufgerufen.
   // Die Funktionen zur Überprüfung, ob die Login-Daten gültig sind, muss also hier oben im PHP-Teil stehen!
@@ -24,4 +43,5 @@
   <div>
 	<button type="submit">senden</button>
   </div>
+  <p class="FM"><?php echo $meldung ?></p>
 </form>

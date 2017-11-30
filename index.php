@@ -46,9 +46,14 @@
       </div>
       <ul class="nav navbar-nav">
 		<?php
+      if (!isset($_SESSION['uid'])){
 		  echo "<li><a href='index.php?function=login&bid=$blogId'>Login</a></li>";
-		  echo "<li><a href='index.php?function=blogs&bid=$blogId'>Blog wählen</a></li>";
+      }
+      echo "<li><a href='index.php?function=blogs&bid=$blogId'>Blog wählen</a></li>";
 		  echo "<li><a href='index.php?function=entries_public&bid=$blogId'>Beiträge anzeigen</a></li>";
+      if (isset($_SESSION['uid'])){
+      echo "<li><a href='index.php?function=logout&bid=$blogId'>logout</a></li>";
+      }
 		?>
       </ul>
 	</div>
