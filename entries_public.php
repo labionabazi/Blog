@@ -19,7 +19,5 @@ foreach ($Bentries as $Bentrie) {
   echo '&eid=';
   echo $Bentrie['eid'];
   echo '" class="btn btn-primary">Go To Blogs</a></div>';
-
-
 }
 ?>

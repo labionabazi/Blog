@@ -32,6 +32,7 @@
   <script src="js/bootstrap.min.js"></script>
   <script src="include/functions.js"></script>
   <title>Blog-Projekt</title>
+
 </head>
 
 <body>
@@ -39,7 +40,7 @@
   nav, div und ul class="..." ist Bootstrap, falls nicht gewünscht entfernen oder anpassen.
   Die Einteilung der Website in verschiedene Bereiche (Menü-, Content-Bereich, usw.) kann auch selber mit div realisiert werden.
 -->
-  <nav class="navbar navbar-default navbar-fixed-top">
+  <nav class="navbar navbar-light" style="background-color: #e3f2fd;">
 	<div class="container">
       <div class="navbar-header">
 		<a class="navbar-brand"><?php echo "Blog ".getUserName($blogId); ?></a>
@@ -49,22 +50,28 @@
       if (!isset($_SESSION['uid'])){
 		  echo "<li><a href='index.php?function=login&bid=$blogId'>Login</a></li>";
       }
+
       echo "<li><a href='index.php?function=blogs&bid=$blogId'>Blog wählen</a></li>";
-		  echo "<li><a href='index.php?function=entries_public&bid=$blogId'>Beiträge anzeigen</a></li>";
+      echo "<li><a href='index.php?function=entries_public&bid=$blogId'>Beiträge anzeigen</a></li>";
+
       if (isset($_SESSION['uid'])){
       echo "<li><a href='index.php?function=logout&bid=$blogId'>logout</a></li>";
+      echo "<li><a href='index.php?function=create&bid=$blogId'>Beitrag erstellen</a></li>";
       }
 		?>
+
       </ul>
 	</div>
   </nav>
-  <div class="container" style="margin-top:80px">
+  <div class="container" style="margin-top:20px">
+    <h1 id="title">Blog-Projekt Labion & Nicolas</h1>
   <?php
     // Für jede Funktion, die mit ?function=xy in der URL übergeben wird, muss eine Datei (in diesem Fall xy.php) existieren.
 	// Diese Datei wird aufgerufen, um den Content der Seite aufzubereiten und anzuzeigen.
 	if (!file_exists("$function.php")) exit("Die Datei '$function.php' konnte nicht gefunden werden!");
 	require_once("$function.php");
   ?>
+
   </div>
 </body>
 </html>
