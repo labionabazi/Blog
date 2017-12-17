@@ -56,7 +56,7 @@
 
       if (isset($_SESSION['uid'])){
       echo "<li><a href='index.php?function=logout&bid=$blogId'>logout</a></li>";
-      echo "<li><a href='index.php?function=create&bid=$blogId'>Beitrag erstellen</a></li>";
+      echo "<li><a href='index.php?function=entries_member_create&bid=$blogId'>Beitrag erstellen</a></li>";
       }
 		?>
 
