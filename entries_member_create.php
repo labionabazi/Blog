@@ -14,7 +14,7 @@ else {
     $title = $_POST['title'];
     $content = $_POST['content'];
     $createdEntry = addEntry($_SESSION['uid'],$title,$content);
-    header('location: index.php?function=entries_member_create&bid='.$_SESSION['uid']);
+    header('location: index.php?function=entries_member&bid='.$_SESSION['uid']);
 }
 
  ?>

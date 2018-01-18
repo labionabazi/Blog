@@ -1,20 +1,20 @@
 <?php
-  if(getUserIdFromSession() == 0){
-    header('Location: index.php?function=login&bid='.$blogId);
-  }
 
-  $Commentare = getComments($EntryId);
+if(getUserIdFromSession() == 0) {
+  header('Location: index.php?function=login&bid='.$blogId);
+}
 
-  if(!empty($_POST['name']) & !empty($_POST['content'])){
-    // kommentar erfassen
+$Comments = getComments($EntryId);
 
-    $titel = $_POST['name'];
-    $content = $_POST['content'];
+if(!empty($_POST['name']) & !empty($_POST['content'])){
+  // hier kommt noch die Funktion zum erfassen eines Kommentares hin.
 
-    $adddedComment = addComment ($EntryId, $titel, $content);
-    header('Location: index.php?function=entries_member_details&bid='.$_SESSION['uid'].'$eid='.$EntryId);
-  }
+  $title = $_POST['name'];
+  $content = $_POST['content'];
 
-
-
- ?>
+  $addetComment = addComment($EntryId,$title,$content);
+  header('Location: index.php?function=entries_member_details&bid='.$_SESSION['uid'].'&eid='.$EntryId);
+  //alert('Erledigt');
+}
+  header('Location: index.php?function=entries_member_details&bid='.$_SESSION['uid'].'&eid='.$EntryId);
+?>

@@ -10,5 +10,4 @@ if (getUserIdFromSession() == 0 ){
         deleteEntry($EntryId);
         header('location: index.php?function=entries_member&bid='.$_SESSION['uid']);
 }
-
 ?>

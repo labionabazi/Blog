@@ -17,6 +17,9 @@
 
   if (isset($_GET['eid'])) $EntryId = $_GET['eid'];
   else $EntryId = 0;
+
+  if (isset($_GET['cid'])) $CommentId = $_GET['cid'];
+  else $CommentId = 0;
 ?>
 <!DOCTYPE html>
 <html lang="de">
@@ -56,6 +59,7 @@
 
       if (isset($_SESSION['uid'])){
       echo "<li><a href='index.php?function=logout&bid=$blogId'>logout</a></li>";
+      echo "<li><a href='index.php?function=entries_member&bid=$blogId'>Meine Beiträge</a></li>";
       echo "<li><a href='index.php?function=entries_member_create&bid=$blogId'>Beitrag erstellen</a></li>";
       }
 		?>
